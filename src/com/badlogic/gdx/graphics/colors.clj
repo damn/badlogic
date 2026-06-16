@@ -1,7 +1,7 @@
 (ns com.badlogic.gdx.graphics.colors
-  (:import (com.badlogic.gdx.graphics Color
-                                      Colors)))
+  (:require [com.badlogic.gdx.graphics.color :refer [rgba->Color]])
+  (:import (com.badlogic.gdx.graphics Colors)))
 
 (defn put! [colors]
-  (doseq [[name [r g b a]] colors]
-    (Colors/put name (Color. r g b a))))
+  (doseq [[name color] colors]
+    (Colors/put name (rgba->Color color))))
